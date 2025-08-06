@@ -29,10 +29,11 @@ It includes all basic math operations, percentages, negation, repeated `=` handl
 
 ## 📂 Project Structure
 
-Responsive_Calculator/ <br>
+Calculator/ <br>
 ├── index.html # Calculator UI and structure <br>
 ├── style.css # Styling and responsive design <br>
 ├── Calculator.js # JavaScript logic for operations and display <br>
+├── image.png # A preview from the web <br>
 └── README.md # Project documentation <br>
 
 
@@ -43,7 +44,7 @@ Responsive_Calculator/ <br>
 ### 1. Clone the repository:
 
 ```bash
-git clone https://github.com/<your-username>/<repo-name>.git
+git clone https://github.com/OriBerger/Calculator.git
 ```
 
 ### 2. Open the project folder and launch index.html in any modern web browser.
