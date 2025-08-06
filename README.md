@@ -50,14 +50,14 @@ git clone https://github.com/<your-username>/<repo-name>.git
 
 ### 3. Start calculating!
 
-🛠️ Technologies
+### 🛠️ Technologies <br>
 HTML5 – Semantic structure for calculator layout
 
 CSS3 – Flexbox, responsive units (clamp), hover effects
 
 JavaScript (ES6) – Handles all button logic and display updates
 
-🎯 Planned Improvements
+### 🎯 Planned Improvements <br>
 Keyboard Support: Type numbers and operators directly.
 
 Calculation History: Show past calculations in a side panel.
@@ -66,9 +66,9 @@ Theme Toggle: Light and dark modes.
 
 Audio Feedback: Optional click sounds on button press.
 
-📸 Preview
-![alt text](<img width="638" height="827" alt="image" src="https://github.com/user-attachments/assets/3eb65d78-7cf5-436a-a500-9a1b025998da" />)
+### 📸 Preview <br>
+![alt text](image.png)
 
 
-👤 Author
+👤 Author <br>
 Ori Berger
