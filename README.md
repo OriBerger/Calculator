@@ -29,10 +29,10 @@ It includes all basic math operations, percentages, negation, repeated `=` handl
 ## 📂 Project Structure
 
 Responsive_Calculator/
-├── index.html # Calculator UI and structure
-├── style.css # Styling and responsive design
-├── Calculator.js # JavaScript logic for operations and display
-└── README.md # Project documentation
+├── index.html # Calculator UI and structure <br>
+├── style.css # Styling and responsive design <br>
+├── Calculator.js # JavaScript logic for operations and display <br>
+└── README.md # Project documentation <br>
 
 
 ---
@@ -65,7 +65,8 @@ Theme Toggle: Light and dark modes.
 Audio Feedback: Optional click sounds on button press.
 
 📸 Preview
-<img width="638" height="827" alt="image" src="https://github.com/user-attachments/assets/3eb65d78-7cf5-436a-a500-9a1b025998da" />
+![alt text](<img width="638" height="827" alt="image" src="https://github.com/user-attachments/assets/3eb65d78-7cf5-436a-a500-9a1b025998da" />)
+
 
 👤 Author
 Ori Berger
