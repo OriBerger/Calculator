@@ -66,9 +66,10 @@ Theme Toggle: Light and dark modes.
 
 Audio Feedback: Optional click sounds on button press.
 
-### 📸 Preview <br>
-![alt text](image.png)
-
+### 📸 Preview
+<p align="center">
+  <img src="image.png" alt="Preview" width="300">
+</p>
 
 👤 Author <br>
 Ori Berger
