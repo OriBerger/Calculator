@@ -19,6 +19,7 @@ It includes all basic math operations, percentages, negation, repeated `=` handl
   - **+/-** toggles negative numbers.
   - **%** calculates percentage relative to the previous number.
   - **Repeated `=`** re-applies the last operation.
+  - **Chaining actions** allows applying multiple operations sequentially.
 - **Smart Display**
   - Auto font-size reduction for long numbers.
   - Converts very long or tiny numbers to scientific notation.
@@ -28,7 +29,7 @@ It includes all basic math operations, percentages, negation, repeated `=` handl
 
 ## 📂 Project Structure
 
-Responsive_Calculator/
+Responsive_Calculator/ <br>
 ├── index.html # Calculator UI and structure <br>
 ├── style.css # Styling and responsive design <br>
 ├── Calculator.js # JavaScript logic for operations and display <br>
@@ -39,14 +40,15 @@ Responsive_Calculator/
 
 ## 📖 Usage
 
-1. Clone the repository:
+### 1. Clone the repository:
 
 ```bash
 git clone https://github.com/<your-username>/<repo-name>.git
+```
 
-2. Open the project folder and launch index.html in any modern web browser.
+### 2. Open the project folder and launch index.html in any modern web browser.
 
-3. Start calculating!
+### 3. Start calculating!
 
 🛠️ Technologies
 HTML5 – Semantic structure for calculator layout
