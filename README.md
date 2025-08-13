@@ -69,7 +69,7 @@ Audio Feedback: Optional click sounds on button press.
 
 ### 📸 Preview <br>
 
-<img src="image.png" alt="Preview" width="300">
+<img src="./image/image.png" alt="Preview" width="300">
 
 👤 Author <br>
 Ori Berger
