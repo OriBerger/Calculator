@@ -2,23 +2,23 @@
 html {
     font-size: 16px;
   } */
-  
-  /* Smaller devices */
-  /* @media (max-width: 768px) {
+
+/* Smaller devices */
+/* @media (max-width: 768px) {
     html {
       font-size: 14px;
     }
   } */
-  
-  /* Very small devices */
-  /* @media (max-width: 480px) {
+
+/* Very small devices */
+/* @media (max-width: 480px) {
     html {
       font-size: 12px;
     }
   } */
-  
-  /* Larger devices */
-  /* @media (min-width: 1200px) {
+
+/* Larger devices */
+/* @media (min-width: 1200px) {
     html {
       font-size: 18px;
     }
@@ -50,14 +50,18 @@ body {
 #display {
     color: #ffffff;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: row-reverse;
     align-items: flex-end;
+    overflow-x: auto;
+    white-space: nowrap;
     height: 30%;
     padding-right: 1rem;
     padding-left: 1rem;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 250;
-    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: clamp(2rem, 8vw, 3rem);
+    scrollbar-color: #888888 transparent;
+    scrollbar-width: thin;
 }
 
 #keypad {
@@ -69,7 +73,7 @@ body {
     padding: 1rem;
     gap: 1rem;
 
-    .row {    
+    .row {
         display: flex;
         width: 100%;
         justify-content: space-between;
@@ -81,6 +85,7 @@ body {
     justify-content: center;
     align-items: center;
     border: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     border-radius: 50%;
     cursor: pointer;
     transition: transform 0.1s ease;
@@ -89,9 +94,29 @@ body {
     font-size: clamp(1rem, 4vw, 1.5rem);
     padding-left: 1rem;
     padding-right: 1rem;
-    /* make them 100%, aspect ratio 1 */
+
     &:active {
         transform: scale(1.05);
+    }
+}
+
+#equals {
+    background-color: #ff9500;
+    color: #f0f0f0;
+
+    &:hover {
+        background-color: #ffae3d;
+        outline: #f0f0f0 0.1rem solid;
+    }
+}
+
+#dot {
+    background-color: #505050;
+    color: #f0f0f0;
+
+    &:hover {
+        background-color: #6e6e6e;
+        outline: #f0f0f0 0.1rem solid;
     }
 }
 
@@ -125,8 +150,9 @@ body {
 .number {
     background-color: #505050;
     color: #f0f0f0;
+
     &:hover {
         background-color: #6e6e6e;
         outline: #f0f0f0 0.1rem solid;
-    }    
+    }
 }
