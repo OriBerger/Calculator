@@ -172,4 +172,4 @@ function updateDisplay() {
   display.textContent = expToDisplay;
 }
 
-updateDisplay(); // So the display will be shown at start
+updateDisplay(); // So the display will be shown every start or refresh
