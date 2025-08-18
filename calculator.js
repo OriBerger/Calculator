@@ -1,3 +1,5 @@
+// calculator.js
+
 const display = document.getElementById("display");
 
 document.querySelectorAll(".digit").forEach((button) => {
