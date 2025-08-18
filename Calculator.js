@@ -1,42 +1,46 @@
 const display = document.getElementById("display");
-const numberButtons = document.querySelectorAll(".number");
-const operatorButtons = document.querySelectorAll(".operator");
-const resetButton = document.getElementById("reset");
-const negativeButton = document.getElementById("negative");
-const percentButton = document.getElementById("percent");
-const dotButton = document.getElementById("dot");
-const equalsButton = document.getElementById("equals");
 
-numberButtons.forEach((button) => {
-  button.addEventListener("click", () => handleDigit(button.textContent));
+document.querySelectorAll(".digit").forEach((button) => {
+  button.addEventListener("click", () => {
+    handleDigit(button.textContent);
+    updateDisplay();
+  });
 });
-operatorButtons.forEach((button) => {
-  button.addEventListener("click", () => handleOperator(button.textContent));
+document.querySelectorAll(".operator").forEach((button) => {
+  button.addEventListener("click", () => {
+    handleOperator(button.textContent);
+    updateDisplay();
+  });
 });
-dotButton.addEventListener("click", () => handleDot());
-resetButton.addEventListener("click", () => handleReset());
-negativeButton.addEventListener("click", () => handleNegative());
-percentButton.addEventListener("click", () => handlePercent());
-equalsButton.addEventListener("click", () => handleEquals());
+document.getElementById("reset").addEventListener("click", () => {
+  handleReset();
+  updateDisplay();
+});
+document.getElementById("negative").addEventListener("click", () => {
+  handleNegative();
+  updateDisplay();
+});
 
+document.getElementById("percent").addEventListener("click", () => {
+  handlePercent();
+  updateDisplay();
+});
+document.getElementById("dot").addEventListener("click", () => {
+  handleDot();
+  updateDisplay();
+});
+document.getElementById("equals").addEventListener("click", () => {
+  handleEquals();
+  updateDisplay();
+});
+
+const ERROR_TXT = "Error";
 let expToDisplay = "0";
 let lastNumber = null;
 let lastInput = null;
 
-function isDigit(input) {
-  return ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(input);
-}
-
-function isOperator(input) {
-  return ["+", "−", "×", "÷"].includes(input);
-}
-
-function updateDisplay() {
-  display.textContent = expToDisplay;
-}
-
 function handleDigit(digit) {
-  if (expToDisplay === "Error") {
+  if (expToDisplay === ERROR_TXT) {
     return;
   }
   if (expToDisplay === "0") {
@@ -52,15 +56,12 @@ function handleDigit(digit) {
     lastNumber += digit;
   }
   lastInput = digit;
-  updateDisplay();
 }
 
 function handleOperator(op) {
-  if (expToDisplay === "Error") {
+  if (expToDisplay === ERROR_TXT) {
     return;
   }
-  console.log(lastInput);
-  console.log(op);
   if (
     lastInput &&
     (isOperator(lastInput) || expToDisplay[expToDisplay.length - 1] === ".")
@@ -70,7 +71,45 @@ function handleOperator(op) {
     expToDisplay += op;
   }
   lastInput = op;
-  updateDisplay();
+}
+
+function handleReset() {
+  expToDisplay = "0";
+  lastNumber = null;
+  lastInput = null;
+}
+
+function handleNegative() {
+  if (!lastNumber || isOperator(lastInput)) {
+    return;
+  }
+  expToDisplay = expToDisplay.slice(0, -lastNumber.length);
+  if (!lastNumber.includes("−")) {
+    lastNumber = "−" + lastNumber;
+  } else {
+    lastNumber = lastNumber.replace("−", "");
+  }
+  expToDisplay += lastNumber;
+}
+
+function handlePercent() {
+  if (
+    expToDisplay === ERROR_TXT ||
+    (lastInput && isOperator(lastInput)) ||
+    !lastNumber
+  ) {
+    return;
+  }
+  let isNegative = lastNumber.includes("−");
+  expToDisplay = expToDisplay.slice(0, -lastNumber.length);
+  if (isNegative) {
+    lastNumber = lastNumber.replace("−", "");
+  }
+  lastNumber = (parseFloat(lastNumber) / 100).toString();
+  if (isNegative) {
+    lastNumber = "−" + lastNumber;
+  }
+  expToDisplay += lastNumber;
 }
 
 function handleDot() {
@@ -90,53 +129,10 @@ function handleDot() {
     expToDisplay += lastNumber;
   }
   lastInput = ".";
-  updateDisplay();
-}
-
-function handleReset() {
-  expToDisplay = "0";
-  lastNumber = null;
-  lastInput = null;
-  updateDisplay();
-}
-
-function handleNegative() {
-  if (!lastNumber || isOperator(lastInput)) {
-    return;
-  }
-  expToDisplay = expToDisplay.slice(0, -lastNumber.length);
-  if (!lastNumber.includes("−")) {
-    lastNumber = "−" + lastNumber;
-  } else {
-    lastNumber = lastNumber.replace("−", "");
-  }
-  expToDisplay += lastNumber;
-  updateDisplay();
-}
-
-function handlePercent() {
-  if (
-    expToDisplay === "Error" ||
-    (lastInput && isOperator(lastInput)) ||
-    !lastNumber
-  ) {
-    return;
-  }
-  let isNegative = lastNumber.includes("−");
-  expToDisplay = expToDisplay.slice(0, -lastNumber.length);
-  if (isNegative) {
-    lastNumber = lastNumber.replace("−", "");
-  }
-  lastNumber = (parseFloat(lastNumber) / 100).toString();
-  if (isNegative) {
-    lastNumber = "−" + lastNumber;
-  }
-  expToDisplay += lastNumber;
-  updateDisplay();
 }
 
 function handleEquals() {
-  if (expToDisplay === "Error" || !lastInput || isOperator(lastInput)) {
+  if (expToDisplay === ERROR_TXT || !lastInput || isOperator(lastInput)) {
     return;
   }
   try {
@@ -155,12 +151,23 @@ function handleEquals() {
       expToDisplay === "Infinity" ||
       expToDisplay === "−Infinity"
     ) {
-      expToDisplay = "Error";
+      expToDisplay = ERROR_TXT;
     }
   } catch (error) {
-    expToDisplay = "Error";
+    expToDisplay = ERROR_TXT;
   }
-  updateDisplay();
+}
+
+function isDigit(input) {
+  return ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(input);
+}
+
+function isOperator(input) {
+  return ["+", "−", "×", "÷"].includes(input);
+}
+
+function updateDisplay() {
+  display.textContent = expToDisplay;
 }
 
 updateDisplay();
