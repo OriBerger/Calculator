@@ -139,7 +139,7 @@ function handleEquals() {
     let result = expToDisplay
       .replace(/×/g, "*")
       .replace(/÷/g, "/")
-      .replace(/−−/g, "+") // Handling eval issues
+      .replace(/−−/g, "+") // Handling eval() function calculation issues
       .replace(/−/g, "-");
     result = eval(result);
     expToDisplay = result.toString();
