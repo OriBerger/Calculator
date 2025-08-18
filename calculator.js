@@ -170,4 +170,4 @@ function updateDisplay() {
   display.textContent = expToDisplay;
 }
 
-updateDisplay();
+updateDisplay(); // So the display will be shown at start
